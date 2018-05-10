@@ -1,0 +1,130 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_white"
+    android:orientation="vertical"
+    android:paddingTop="67dp">
+
+
+    <EditText
+        android:id="@+id/edit_tel"
+        style="@style/view_login_regist_edittext"
+        android:hint="@string/user_login_account_hint"
+        android:singleLine="true"
+        android:inputType="number"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="36dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginTop="9dp"
+        android:background="@color/login_red_mid" />
+
+    <EditText
+        android:id="@+id/edit_password"
+        style="@style/view_login_regist_edittext"
+        android:hint="@string/user_login_pwd_hint"
+        android:inputType="textPassword" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/bg_binding_line" />
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/line_option_button_height"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/button_login_bg"
+        android:gravity="center"
+        android:text="@string/user_login_account_login"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/txt_size_second" />
+
+
+    <TextView
+        android:id="@+id/tv_forgot_pwd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp"
+        android:text="@string/txt_forgot_pwd"
+        android:textColor="@color/comm_gray_low"
+        android:textSize="@dimen/txt_size_fourth" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="28dp"
+        android:layout_marginTop="20dp"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:drawableLeft="@drawable/common_divider_line_black"
+            android:drawablePadding="9dp"
+            android:drawableRight="@drawable/common_divider_line_black"
+            android:gravity="center_horizontal"
+            android:singleLine="true"
+            android:text="@string/user_login_bottom_text"
+            android:textColor="@color/comm_gray_low"
+            android:textSize="@dimen/txt_size_fourth" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/common_ui_horizontal_marg"
+            android:layout_marginRight="@dimen/common_ui_horizontal_marg"
+            android:layout_marginTop="29dp"
+            android:gravity="center_horizontal">
+
+            <com.youpin.comic.publicviews.MyImageView
+                android:id="@+id/iv_wxlogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/img_share_weixin" />
+
+
+            <com.youpin.comic.publicviews.MyImageView
+                android:id="@+id/iv_qqlogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:src="@drawable/img_qq" />
+
+            <com.youpin.comic.publicviews.MyImageView
+                android:id="@+id/iv_sinalogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:src="@drawable/img_icon_wb" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_login_wing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="29dp"
+            android:gravity="center_horizontal"
+            android:singleLine="true"
+            android:text="@string/user_login_bottom_text_two"
+            android:textColor="@color/comm_gray_low"
+            android:textSize="@dimen/txt_size_fourth" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

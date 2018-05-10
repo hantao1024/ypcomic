@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">有品漫画</string>
+    <string name="browse_terminal_warning">已经到头了...</string>
+    <string name="browse_harding_loading">正在努力加载...</string>
+    <string name="text_save">保存</string>
+    <string name="text_share">分享</string>
+    <string name="shared_2_save_album">保存到相册</string>
+    <string name="shared_2_save_album_success">已保存到%s</string>
+    <string name="shared_2_save_album_start_save">正在保存...</string>
+    <string name="shared_2_save_album_failed">保存失败!</string>
+
+
+    <!-- 用户登录 -->
+    <string name="user_login_account_login">登录</string>
+    <string name="user_login_account_regist">注册</string>
+    <string name="user_login_account_forget">确认修改</string>
+    <string name="user_login_entrance">进入有品漫画</string>
+    <string name="user_login_account_hint">请输入手机号</string>
+    <string name="user_login_pwd_hint">请输入密码</string>
+    <string name="regist_hint_verification">请输入验证码</string>
+    <string name="get_hint_verification">获取验证码</string>
+    <string name="user_set_login_pwd_hint">设置密码,6-20位字符</string>
+    <string name="user_login_bottom_text">第三方登陆</string>
+    <string name="user_login_bottom_text_two">翅膀APP授权登录></string>
+    <string name="login_inputer_userinfo">请正确输入用户信息！</string>
+    <string name="login_hand_input">手动输入</string>
+    <string name="login_recommand_same_name">推荐相似名称</string>
+    <string name="login_username_repeat">用户名重复</string>
+    <string name="login_failed_check_account">登录失败,请检查您的帐户信息!</string>
+    <string name="txt_forgot_pwd">忘记密码</string>
+    <string name="login_login_confirm_logout">确定要退出登录吗?</string>
+    <string name="more_logout_waring">已安全退出!</string>
+
+
+    <!-- 分享部分 -->
+    <string name="errcode_shared_to">分享到</string>
+    <string name="errcode_success">发送成功</string>
+    <string name="errcode_logging">登录中,请稍候...</string>
+    <string name="errcode_cancel">发送取消</string>
+    <string name="errcode_deny">发送被拒绝</string>
+    <string name="errcode_unknown">发送返回</string>
+
+
+    <!-- 更多(关于我们) -->
+    <string name="more_abut_share_text">我正在使用动漫之家手机客户端看漫画，最全的漫画内容、最及时的漫画更新，你也下载一个看看吧!</string>
+    <string name="more_abut_share_title">最全的漫画内容、最及时的漫画更新</string>
+    <string name="share_default_text">我正在使用动漫之家手机客户端看漫画，最全的漫画内容、最及时的漫画更新，你也下载一个看看吧！http://www.dmzj.com</string>
+
+</resources>

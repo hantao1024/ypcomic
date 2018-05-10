@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <item name="id01" type="id"/>
+    <item name="id02" type="id"/>
+    <item name="id03" type="id"/>
+    <item name="id04" type="id"/>
+    <item name="id05" type="id"/>
+    <item name="id06" type="id"/>
+    <item name="id07" type="id"/>
+    <item name="id08" type="id"/>
+    <item name="id09" type="id"/>
+    <item name="id10" type="id"/>
+    <item name="id11" type="id"/>
+    
+    <item name="id12" type="id"/>
+    <item name="id13" type="id"/>
+    <item name="id14" type="id"/>
+    <item name="id15" type="id"/>
+    <item name="id16" type="id"/>
+    <item name="id17" type="id"/>
+    <item name="id18" type="id"/>
+    <item name="id19" type="id"/>
+    
+    <item name="id_url_container" type="id"/>
+    <item name="img_url" type="id"/>
+    <item name="img_test" type="id"/>
+    <item name="bean_ads" type="id"/>
+    <item name="bean_recommand" type="id"/>
+    <item name="bean_voices" type="id"/>
+    <item name="tag_boolean_ad" type="id"/>
+    <!-- 是否是漫画的最尾部 -->
+    <item name="bool_commic_tail" type="id"/>
+    
+    
+    <!-- 爆光上报 -->
+    <item name="bool_imgreport" type="id"/>
+    <!-- 已经完成了曝光上报 -->
+    <item name="bool_imgreport_completed" type="id"/>
+    <!-- 点击上报 -->
+    <item name="bool_clikreport" type="id"/>
+    <!-- 广告已经渲染 -->
+    <item name="bool_add_attached" type="id"/>
+    <!-- 在使用 -->
+    <item name="bool_inuse" type="id"/>
+    
+	
+</resources>

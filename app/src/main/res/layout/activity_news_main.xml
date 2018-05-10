@@ -1,0 +1,45 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:mmsx="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white">
+
+        <com.youpin.comic.publicviews.BounceScrollView
+            android:id="@+id/id_scrollview"
+            android:layout_width="0dp"
+            android:layout_height="47dp"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:focusableInTouchMode="false"
+            android:scrollbars="none">
+
+            <com.youpin.comic.publicviews.ViewPagerIndicator
+                android:id="@+id/id_indicator"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:layout_marginLeft="6dp"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:orientation="horizontal"></com.youpin.comic.publicviews.ViewPagerIndicator>
+        </com.youpin.comic.publicviews.BounceScrollView>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="@drawable/common_navi_line" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/id_vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"></android.support.v4.view.ViewPager>
+
+</LinearLayout>

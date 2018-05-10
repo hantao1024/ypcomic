@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="managers" translatable="false">
+		<item>com.youpin.comic.mainpage.manager.MainPageManager</item>
+		<item>com.youpin.comic.loginpage.manager.LoginPageManager</item>
+	</string-array>
+</resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	
+    <!-- 首页我的五个标签 -->
+    <string-array name="tab_main_mine_frag_names">
+        <item>推荐</item>
+        <item>更新</item>
+        <item>分类</item>
+        <item>排行</item>
+        <item>专题</item>
+    </string-array>
+    <declare-styleable name="RatingBar">
+        <!--星星间距-->
+        <attr format="dimension" name="starDistance"/>
+        <!--星星大小-->
+        <attr format="dimension" name="starSize"/>
+        <!--星星个数-->
+        <attr format="integer" name="starCount"/>
+        <!--星星空图-->
+        <attr format="reference" name="starEmpty"/>
+        <!--星星满图-->
+        <attr format="reference" name="starFill"/>
+    </declare-styleable>
+</resources>

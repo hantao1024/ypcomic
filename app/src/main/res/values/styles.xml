@@ -1,0 +1,63 @@
+<resources>
+
+    <!--&lt;!&ndash; Base application theme. &ndash;&gt;-->
+    <!--<style name="AppTheme" parent="Theme.AppCompat.Light">-->
+        <!--&lt;!&ndash; Customize your theme here. &ndash;&gt;-->
+        <!--<item name="colorPrimary">@color/colorPrimary</item>-->
+        <!--<item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
+        <!--<item name="colorAccent">@color/colorAccent</item>-->
+    <!--</style>-->
+
+
+
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+
+    <style name="MyTheme" parent="Theme.AppCompat">
+    </style>
+    <style name="NoActionBar" parent="MyTheme">
+        <!-- Both of these are needed -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!-- 登录注册 edittext 属性 -->
+    <style name="editext_regist_style">
+        <item name="android:textSize">@dimen/txt_size_third</item>
+        <item name="android:textColor">@color/comm_gray_mid</item>
+        <item name="android:layout_marginTop">@dimen/common_ui_horizontal_marg</item>
+        <item name="android:background">@drawable/shape_rectangle_color_white_border_gray</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">38dp</item>
+        <item name="android:paddingLeft">@dimen/txt_size_second</item>
+    </style>
+
+    <!-- 登录注册 linearlayout 属性 -->
+    <style name="layout_login_regist">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <!-- 登录注册 input EditText 属性 -->
+    <style name="view_login_regist_edittext">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/common_login_ui_horizontal_marg</item>
+        <item name="android:layout_marginRight">@dimen/common_login_ui_horizontal_marg</item>
+        <item name="android:textSize">@dimen/txt_size_third</item>
+        <item name="android:textColor">@color/comm_gray_high</item>
+        <item name="android:textColorHint">@color/comm_gray_low</item>
+        <item name="android:background">@null</item>
+    </style>
+
+    <style name="StartTheme" parent="NoActionBar">
+        <item name="android:windowBackground">@drawable/welcome</item>
+    </style>
+</resources>
