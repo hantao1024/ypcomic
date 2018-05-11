@@ -14,7 +14,7 @@ import com.scwang.smartrefresh.layout.footer.BallPulseFooter;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.youpin.comic.R;
 import com.youpin.comic.base.StepFragment;
-import com.youpin.comic.mainpage.adapter.ShopListAdapter;
+import com.youpin.comic.mainpage.adapter.MainCommentAdapter;
 import com.youpin.comic.mainpage.bean.User;
 import com.youpin.comic.mainpage.dao.UserNameDao;
 import com.youpin.comic.mainpage.events.HomePageEvents;
@@ -34,7 +34,7 @@ import java.util.List;
  */
 
 public class MainCommentFragment extends StepFragment {
-    ShopListAdapter shopListAdapter;
+    MainCommentAdapter mainCommentAdapter;
     RefreshLayout refreshLayout;
     private List<User> userList = new LinkedList<>();
 
@@ -74,9 +74,9 @@ public class MainCommentFragment extends StepFragment {
     protected void initData() {
         refreshLayout.setRefreshFooter(new BallPulseFooter(getActivity()).setSpinnerStyle(SpinnerStyle.Scale));
         userList = UserNameDao.queryUser();
-        shopListAdapter = new ShopListAdapter(getActivity(), userList);
-        shopListAdapter.setItemListner(itemListner);
-        lv_content.setAdapter(shopListAdapter);
+        mainCommentAdapter = new MainCommentAdapter(getActivity(), userList);
+        mainCommentAdapter.setItemListner(itemListner);
+        lv_content.setAdapter(mainCommentAdapter);
         MainPageManager.getInstance().doGet(false, mBaseUrl, null);
     }
 
@@ -129,13 +129,13 @@ public class MainCommentFragment extends StepFragment {
         }
 
         List<User> list = UserNameDao.queryUser();
-        shopListAdapter.reLoad(list);
-        shopListAdapter.notifyDataSetChanged();
+        mainCommentAdapter.reLoad(list);
+        mainCommentAdapter.notifyDataSetChanged();
 
     }
 
 
-    private ShopListAdapter.ItemListner itemListner = new ShopListAdapter.ItemListner() {
+    private MainCommentAdapter.ItemListner itemListner = new MainCommentAdapter.ItemListner() {
         @Override
         public void Click(User user) {
 //            UserNameDao.updateUser(user);
@@ -151,8 +151,8 @@ public class MainCommentFragment extends StepFragment {
         public void Delete(User user) {
             UserNameDao.deleteUser(user.getId());
             List<User> list = UserNameDao.queryUser();
-            shopListAdapter.reLoad(list);
-            shopListAdapter.notifyDataSetChanged();
+            mainCommentAdapter.reLoad(list);
+            mainCommentAdapter.notifyDataSetChanged();
         }
     };
 

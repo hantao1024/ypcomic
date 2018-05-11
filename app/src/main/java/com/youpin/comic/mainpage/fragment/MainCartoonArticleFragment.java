@@ -14,7 +14,7 @@ import com.scwang.smartrefresh.layout.footer.BallPulseFooter;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.youpin.comic.R;
 import com.youpin.comic.base.StepFragment;
-import com.youpin.comic.mainpage.adapter.ShopListAdapter;
+import com.youpin.comic.mainpage.adapter.MainCartoonArticleAdapter;
 import com.youpin.comic.mainpage.bean.User;
 import com.youpin.comic.mainpage.dao.UserNameDao;
 import com.youpin.comic.mainpage.events.HomePageEvents;
@@ -34,7 +34,7 @@ import java.util.List;
  */
 
 public class MainCartoonArticleFragment extends StepFragment {
-    ShopListAdapter shopListAdapter;
+    MainCartoonArticleAdapter mainCartoonArticleAdapter;
     RefreshLayout refreshLayout;
     private List<User> userList = new LinkedList<>();
 
@@ -74,9 +74,9 @@ public class MainCartoonArticleFragment extends StepFragment {
     protected void initData() {
         refreshLayout.setRefreshFooter(new BallPulseFooter(getActivity()).setSpinnerStyle(SpinnerStyle.Scale));
         userList = UserNameDao.queryUser();
-        shopListAdapter = new ShopListAdapter(getActivity(), userList);
-        shopListAdapter.setItemListner(itemListner);
-        lv_content.setAdapter(shopListAdapter);
+        mainCartoonArticleAdapter = new MainCartoonArticleAdapter(getActivity(), userList);
+        mainCartoonArticleAdapter.setItemListner(itemListner);
+        lv_content.setAdapter(mainCartoonArticleAdapter);
         MainPageManager.getInstance().doGet(false, mBaseUrl, null);
     }
 
@@ -129,30 +129,21 @@ public class MainCartoonArticleFragment extends StepFragment {
         }
 
         List<User> list = UserNameDao.queryUser();
-        shopListAdapter.reLoad(list);
-        shopListAdapter.notifyDataSetChanged();
+        mainCartoonArticleAdapter.reLoad(list);
+        mainCartoonArticleAdapter.notifyDataSetChanged();
 
     }
 
 
-    private ShopListAdapter.ItemListner itemListner = new ShopListAdapter.ItemListner() {
+    private MainCartoonArticleAdapter.ItemListner itemListner = new MainCartoonArticleAdapter.ItemListner() {
         @Override
         public void Click(User user) {
-//            UserNameDao.updateUser(user);
-//            List<User> list = UserNameDao.queryUser();
-//            shopListAdapter.reLoad(list);
-//            shopListAdapter.notifyDataSetChanged();
 
-//            Intent intent=new Intent(getActivity(),ThreeActivity.class);
-//            startActivity(intent);
         }
 
         @Override
         public void Delete(User user) {
-            UserNameDao.deleteUser(user.getId());
-            List<User> list = UserNameDao.queryUser();
-            shopListAdapter.reLoad(list);
-            shopListAdapter.notifyDataSetChanged();
+
         }
     };
 
