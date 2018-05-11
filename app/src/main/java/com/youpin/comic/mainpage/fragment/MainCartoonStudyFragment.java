@@ -66,9 +66,7 @@ public class MainCartoonStudyFragment extends StepFragment implements View.OnCli
 		mViewPager.setOffscreenPageLimit(1);
 		iv_main_query = (ImageView) v.findViewById(R.id.iv_main_query);
 		iv_main_boy_or_girl = (ImageView) v.findViewById(R.id.iv_main_boy_or_girl);
-
 		mViewPager .setOffscreenPageLimit(2);//参数为预加载数量，系统最小值为1。慎用！预加载数量过多低端机子受不了
-//		mScrollView.setSlide(false);
 	}
 
 	@Override
@@ -77,7 +75,9 @@ public class MainCartoonStudyFragment extends StepFragment implements View.OnCli
 	}
 
 	private void setFirstItem() {
-		classItems.clear();
+		if (classItems!=null&&classItems.size()==4) {
+			return;
+		}
 		ClassifyFilterBeans.ClassifyFilterItem  classifyFilterItem=new ClassifyFilterBeans.ClassifyFilterItem();
 		classifyFilterItem.setTag_id(0);
 		classifyFilterItem.setTag_name("推荐");

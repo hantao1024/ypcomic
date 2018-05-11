@@ -14,7 +14,7 @@
         <com.youpin.comic.publicviews.BounceScrollView
             android:id="@+id/id_scrollview"
             android:layout_width="0dp"
-            android:layout_height="53dp"
+            android:layout_height="49dp"
             android:layout_weight="1"
             android:layout_marginLeft="12dp"
             android:layout_gravity="center_vertical"
