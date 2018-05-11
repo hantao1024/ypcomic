@@ -60,10 +60,10 @@ public class MainActivity extends StepActivity {
         fgLists.add(new MineFragment());
 
         navigationController = tab.custom()
-                .addItem(newItem(R.drawable.icon_main_two_no_checked,R.drawable.icon_main_one_checked,"漫研"))
-                .addItem(newItem(R.drawable.icon_main_two_no_checked,R.drawable.icon_main_one_checked,"读漫"))
-                .addItem(newItem(R.drawable.icon_main_three_no_checked,R.drawable.icon_main_one_checked,"聊漫"))
-                .addItem(newItem(R.drawable.icon_main_four_no_checked,R.drawable.icon_main_one_checked,"我的"))
+                .addItem(newItem(R.drawable.icon_main_one_no_checked,R.drawable.icon_main_one_checked,"漫研"))
+                .addItem(newItem(R.drawable.icon_main_two_no_checked,R.drawable.icon_main_two_checked,"读漫"))
+                .addItem(newItem(R.drawable.icon_main_three_no_checked,R.drawable.icon_main_three_checked,"聊漫"))
+                .addItem(newItem(R.drawable.icon_main_four_no_checked,R.drawable.icon_main_four_checked,"我的"))
                 .build();
 
 

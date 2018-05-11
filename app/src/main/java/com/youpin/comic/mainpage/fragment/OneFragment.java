@@ -20,7 +20,6 @@ import com.youpin.comic.mainpage.dao.UserNameDao;
 import com.youpin.comic.mainpage.events.HomePageEvents;
 import com.youpin.comic.mainpage.manager.MainPageManager;
 import com.youpin.comic.publicevent.EventBusUtils;
-import com.youpin.comic.publicviews.StarBar;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
@@ -40,7 +39,6 @@ public class OneFragment extends StepFragment {
     private List<User> userList = new LinkedList<>();
 
     ListView lv_content;
-    StarBar starBar;
     private String mBaseUrl = "https://nbsdk-baichuan.alicdn.com/2.0.0/applink.htm?plat=android&appKey=23261993";
 
     @Override
@@ -68,7 +66,6 @@ public class OneFragment extends StepFragment {
     protected void findViews() {
         lv_content = (ListView) v.findViewById(R.id.lv_content);
         refreshLayout = (RefreshLayout) v.findViewById(R.id.refreshLayout);
-        starBar = (StarBar) v.findViewById(R.id.starBar);
 
     }
 
@@ -112,7 +109,9 @@ public class OneFragment extends StepFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-
+        if (v != null) {
+            ((ViewGroup) v.getParent()).removeView(v);
+        }
     }
 
     /**

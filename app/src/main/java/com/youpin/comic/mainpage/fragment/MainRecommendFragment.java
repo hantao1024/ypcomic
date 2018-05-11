@@ -119,6 +119,7 @@ public class MainRecommendFragment extends StepFragment {
     }
 
     private void setTextData(){
+        textArray.clear();
         textArray.add("测试000000000000001");
         textArray.add("测试000000000000002");
         textArray.add("测试000000000000003");
@@ -184,6 +185,11 @@ public class MainRecommendFragment extends StepFragment {
 //        });
 
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
     }
 
     @Override
@@ -304,6 +310,7 @@ public class MainRecommendFragment extends StepFragment {
         if (textArray==null) {
             return;
         }
+        views.clear();
         for (int i = 0; i < textArray.size(); i ++) {
             final int position = i;
             //设置滚动的单个布局

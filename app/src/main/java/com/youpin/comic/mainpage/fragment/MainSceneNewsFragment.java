@@ -167,4 +167,12 @@ public class MainSceneNewsFragment extends StepFragment implements View.OnClickL
 		}
 
 	}
+
+	@Override
+	public void onDestroyView() {
+		super.onDestroyView();
+		if (v != null) {
+			((ViewGroup) v.getParent()).removeView(v);
+		}
+	}
 }

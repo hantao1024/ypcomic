@@ -24,6 +24,7 @@ import com.youpin.comic.loginpage.manager.LoginPageManager;
 import com.youpin.comic.mainpage.events.HomePageEvents;
 import com.youpin.comic.publicevent.EventBusUtils;
 import com.youpin.comic.publicutils.UserHelper;
+import com.youpin.comic.publicviews.RatingBar;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
@@ -37,6 +38,7 @@ public class MineFragment extends StepFragment {
     RefreshLayout refreshLayout;
     ImageView iv_login;
     ImageView iv_login_out;
+    private RatingBar mRatingBar;
     @Override
     protected void onHandleMessage(Message msg) {
 
@@ -70,18 +72,27 @@ public class MineFragment extends StepFragment {
         refreshLayout.setEnableAutoLoadMore(false);
         //禁止越界拖动：
         refreshLayout.setEnableOverScrollDrag(false);
+        mRatingBar=v.findViewById(R.id.star_mine);
 
     }
 
     @Override
     protected void initData() {
+        mRatingBar.setClickable(true);
+        mRatingBar.setStar(3.5f);
+        mRatingBar.setOnRatingChangeListener(onRatingChangeListener);
         refreshLayout.setRefreshFooter(new BallPulseFooter(getActivity()).setSpinnerStyle(SpinnerStyle.Scale));
     }
 
     private void loadData(final boolean more) {
 
     }
-
+    RatingBar.OnRatingChangeListener onRatingChangeListener=new RatingBar.OnRatingChangeListener() {
+        @Override
+        public void onRatingChange(float ratingCount) {
+            Toast.makeText(getActivity(),""+ratingCount,Toast.LENGTH_SHORT).show();
+        }
+    };
     @Override
     protected void setListener() {
         refreshLayout.setOnRefreshListener(new OnRefreshListener() {

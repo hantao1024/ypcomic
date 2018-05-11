@@ -13,15 +13,6 @@
         android:layout_height="match_parent"
         android:layout_above="@id/main_tab"
         android:layout_below="@id/layout_title">
-        <com.youpin.comic.publicviews.StarBar
-            android:id="@+id/starBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            ratingbar:starEmpty="@drawable/star_empty"
-            ratingbar:starFill="@drawable/star_full"
-            ratingbar:starDistance="5dp"
-            ratingbar:starCount="5"
-            ratingbar:starSize="30dp"/>
         <ListView
             android:id="@+id/lv_content"
             android:layout_width="match_parent"

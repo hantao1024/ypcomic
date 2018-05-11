@@ -109,7 +109,9 @@ public class ThreeFragment extends StepFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-
+        if (v != null) {
+            ((ViewGroup) v.getParent()).removeView(v);
+        }
     }
 
     /**
@@ -153,5 +155,4 @@ public class ThreeFragment extends StepFragment {
             shopListAdapter.notifyDataSetChanged();
         }
     };
-
 }

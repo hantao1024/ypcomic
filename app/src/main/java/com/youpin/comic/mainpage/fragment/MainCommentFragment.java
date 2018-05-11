@@ -110,7 +110,9 @@ public class MainCommentFragment extends StepFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-
+        if (v != null) {
+            ((ViewGroup) v.getParent()).removeView(v);
+        }
     }
 
     /**

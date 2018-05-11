@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/bg_white"
@@ -66,16 +67,21 @@
                     android:layout_marginTop="3dp"
                     android:orientation="horizontal">
 
-                    <TextView
+
+                    <com.youpin.comic.publicviews.RatingBar
                         android:id="@+id/tv_show_star"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="left"
-                        android:layout_marginLeft="6dp"
-                        android:text="hhh"
-                        android:textColor="@color/comm_gray_mid"
-                        android:textSize="@dimen/txt_size_fourth" />
-
+                        android:paddingLeft="12dp"
+                        app:starCount="5"
+                        android:layout_gravity="center"
+                        app:starEmpty="@drawable/star_empty"
+                        app:starFill="@drawable/star_full"
+                        app:starHalf="@drawable/star_half"
+                        app:starImageSize="10dp"
+                        app:starPadding="1dp"
+                        app:starStep="0.0"
+                        app:stepSize="Half"/>
                     <TextView
                         android:id="@+id/tv_cartoon_grade"
                         android:layout_width="wrap_content"
