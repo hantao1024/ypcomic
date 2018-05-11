@@ -1,0 +1,17 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="12dp"
+    android:layout_marginRight="12dp"
+    android:orientation="vertical">
+    <include
+        android:id="@+id/ll_main_image_cycle_view"
+        layout="@layout/main_recommend_image_cycle_view" />
+    <include
+        android:id="@+id/ll_main_up_down_roll"
+        layout="@layout/main_recommend_up_down_roll_list" />
+    <include
+        android:id="@+id/ll_main_roll"
+        layout="@layout/main_recommend_roll_list" />
+</LinearLayout>

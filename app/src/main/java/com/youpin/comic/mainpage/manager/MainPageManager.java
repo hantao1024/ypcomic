@@ -4,11 +4,11 @@ import android.util.Log;
 
 import com.orhanobut.logger.Logger;
 import com.youpin.comic.CApplication;
+import com.youpin.comic.constant.AppConfig;
 import com.youpin.comic.mainpage.events.HomePageEvents;
 import com.youpin.comic.mainpage.events.NewPageEvents;
 import com.youpin.comic.publichttp.OkhttpHelper;
 import com.youpin.comic.publicmanager.BaseManager;
-import com.youpin.comic.constant.AppConfig;
 
 import org.greenrobot.eventbus.EventBus;
 

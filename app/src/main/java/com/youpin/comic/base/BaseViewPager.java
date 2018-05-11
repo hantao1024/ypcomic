@@ -12,6 +12,8 @@ import android.view.MotionEvent;
 public class BaseViewPager extends ViewPager {
     //是否可以进行滑动
     private boolean isSlide = false;
+    private float mPointX;
+    private float mPointY;
 
     public void setSlide(boolean slide) {
         isSlide = slide;
@@ -29,4 +31,31 @@ public class BaseViewPager extends ViewPager {
     public boolean onInterceptTouchEvent(MotionEvent ev) {
         return isSlide;
     }
+
+//    @Override
+//    public boolean dispatchTouchEvent(MotionEvent ev) {
+//        switch (ev.getAction()) {
+//            case MotionEvent.ACTION_DOWN:
+//                mPointX = ev.getX();
+//                mPointY = ev.getY();
+//                getParent().requestDisallowInterceptTouchEvent(true);
+//                break;
+//            case MotionEvent.ACTION_MOVE:
+//                if (Math.abs(ev.getX() - mPointX) > Math.abs(ev.getY() - mPointY)) {
+//                    getParent().requestDisallowInterceptTouchEvent(true);
+//                } else {
+//                    getParent().requestDisallowInterceptTouchEvent(false);
+//                }
+//                break;
+//            case MotionEvent.ACTION_UP:
+//            case MotionEvent.ACTION_CANCEL:
+//                getParent().requestDisallowInterceptTouchEvent(false);
+//                break;
+//
+//            default:
+//                break;
+//        }
+//        return super.dispatchTouchEvent(ev);
+//
+//    }
 }

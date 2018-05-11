@@ -46,4 +46,8 @@
     <string name="more_abut_share_title">最全的漫画内容、最及时的漫画更新</string>
     <string name="share_default_text">我正在使用动漫之家手机客户端看漫画，最全的漫画内容、最及时的漫画更新，你也下载一个看看吧！http://www.dmzj.com</string>
 
+
+    <!-- 漫研首页-->
+    <string name="main_edit_recommend">编辑力荐</string>
+
 </resources>

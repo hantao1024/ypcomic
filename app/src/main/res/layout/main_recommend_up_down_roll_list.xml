@@ -1,0 +1,35 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingTop="16dp">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginRight="3dp"
+        android:layout_marginTop="2dp"
+        android:src="@drawable/icon_main_new" />
+
+    <com.youpin.comic.upmarqueeview.UPMarqueeView
+        android:id="@+id/up_show_title"
+        android:layout_marginLeft="10dp"
+        android:layout_width="0dp"
+        android:layout_gravity="left|center"
+        android:layout_weight="1"
+        android:layout_centerVertical="true"
+        android:layout_height="match_parent">
+
+    </com.youpin.comic.upmarqueeview.UPMarqueeView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="更多>"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/comm_gray_low"
+        android:textSize="@dimen/txt_size_fourth" />
+</LinearLayout>

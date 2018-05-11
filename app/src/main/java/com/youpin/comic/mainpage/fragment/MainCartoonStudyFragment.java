@@ -66,7 +66,7 @@ public class MainCartoonStudyFragment extends StepFragment implements View.OnCli
 		mViewPager.setOffscreenPageLimit(1);
 		iv_main_query = (ImageView) v.findViewById(R.id.iv_main_query);
 		iv_main_boy_or_girl = (ImageView) v.findViewById(R.id.iv_main_boy_or_girl);
-		mScrollView.setSlide(false);
+//		mScrollView.setSlide(false);
 	}
 
 	@Override
@@ -114,7 +114,7 @@ public class MainCartoonStudyFragment extends StepFragment implements View.OnCli
 				fragment.setStepActivity((StepActivity) getActivity());
 				mTabContents.add(fragment);
 			} else if(i==1){
-				OneFragment fragment = new OneFragment();
+				MainCartoonArticleFragment fragment = new MainCartoonArticleFragment();
 				Bundle bundle = new Bundle();
 				bundle.putString("nameStr", classItems.get(i).getTag_name());
 				bundle.putInt("ids", classItems.get(i).getTag_id());
@@ -122,7 +122,7 @@ public class MainCartoonStudyFragment extends StepFragment implements View.OnCli
 				fragment.setStepActivity((StepActivity) getActivity());
 				mTabContents.add(fragment);
 			} else if(i==2){
-				OneFragment fragment = new OneFragment();
+				MainNewsFragment fragment = new MainNewsFragment();
 				Bundle bundle = new Bundle();
 				bundle.putString("nameStr", classItems.get(i).getTag_name());
 				bundle.putInt("ids", classItems.get(i).getTag_id());
@@ -130,7 +130,7 @@ public class MainCartoonStudyFragment extends StepFragment implements View.OnCli
 				fragment.setStepActivity((StepActivity) getActivity());
 				mTabContents.add(fragment);
 			} else if(i==3){
-				OneFragment fragment = new OneFragment();
+				MainCommentFragment fragment = new MainCommentFragment();
 				Bundle bundle = new Bundle();
 				bundle.putString("nameStr", classItems.get(i).getTag_name());
 				bundle.putInt("ids", classItems.get(i).getTag_id());
@@ -180,6 +180,25 @@ public class MainCartoonStudyFragment extends StepFragment implements View.OnCli
 		iv_main_query.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
+
+			}
+		});
+
+		mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+			@Override
+			public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+				if (iv_main_boy_or_girl!=null) {
+					iv_main_boy_or_girl.setVisibility(position==0?View.VISIBLE:View.GONE);
+				}
+			}
+
+			@Override
+			public void onPageSelected(int position) {
+
+			}
+
+			@Override
+			public void onPageScrollStateChanged(int state) {
 
 			}
 		});
