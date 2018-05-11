@@ -22,6 +22,8 @@ import java.util.ArrayList;
 
 import me.majiajie.pagerbottomtabstrip.NavigationController;
 import me.majiajie.pagerbottomtabstrip.PageNavigationView;
+import me.majiajie.pagerbottomtabstrip.item.BaseTabItem;
+import me.majiajie.pagerbottomtabstrip.item.NormalItemView;
 import me.majiajie.pagerbottomtabstrip.listener.OnTabItemSelectedListener;
 
 
@@ -57,13 +59,11 @@ public class MainActivity extends StepActivity {
         fgLists.add(new ThreeFragment());
         fgLists.add(new MineFragment());
 
-
-
-        navigationController = tab.material()
-                .addItem(R.drawable.main_index_tab_selector_cart, "漫研")
-                .addItem(android.R.drawable.ic_menu_search, "读漫")
-                .addItem(android.R.drawable.ic_menu_help, "聊漫")
-                .addItem(android.R.drawable.ic_menu_help, "我的")
+        navigationController = tab.custom()
+                .addItem(newItem(R.drawable.icon_main_two_no_checked,R.drawable.icon_main_one_checked,"漫研"))
+                .addItem(newItem(R.drawable.icon_main_two_no_checked,R.drawable.icon_main_one_checked,"读漫"))
+                .addItem(newItem(R.drawable.icon_main_three_no_checked,R.drawable.icon_main_one_checked,"聊漫"))
+                .addItem(newItem(R.drawable.icon_main_four_no_checked,R.drawable.icon_main_one_checked,"我的"))
                 .build();
 
 
@@ -88,6 +88,14 @@ public class MainActivity extends StepActivity {
 //        navigationController.setHasMessage(0,true);
     }
 
+    //创建一个Item
+    private BaseTabItem newItem(int drawable, int checkedDrawable, String text){
+        NormalItemView normalItemView = new NormalItemView(this);
+        normalItemView.initialize(drawable,checkedDrawable,text);
+        normalItemView.setTextDefaultColor(getActivity().getResources().getColor(R.color.comm_gray_low));
+        normalItemView.setTextCheckedColor(getActivity().getResources().getColor(R.color.login_red_mid));
+        return normalItemView;
+    }
     @Override
     protected void initData() {
     }
@@ -99,8 +107,8 @@ public class MainActivity extends StepActivity {
             @Override
             public void onSelected(int index, int old) {
                 //选中时触发
-                if (index==2) {
-                    navigationController.setMessageNumber(2,0);
+                if (index==3) {
+                    navigationController.setMessageNumber(3,0);
                 }
             }
 
