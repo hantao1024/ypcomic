@@ -66,6 +66,8 @@ public class MainCartoonStudyFragment extends StepFragment implements View.OnCli
 		mViewPager.setOffscreenPageLimit(1);
 		iv_main_query = (ImageView) v.findViewById(R.id.iv_main_query);
 		iv_main_boy_or_girl = (ImageView) v.findViewById(R.id.iv_main_boy_or_girl);
+
+		mViewPager .setOffscreenPageLimit(1);//参数为预加载数量，系统最小值为1。慎用！预加载数量过多低端机子受不了
 //		mScrollView.setSlide(false);
 	}
 
@@ -211,5 +213,12 @@ public class MainCartoonStudyFragment extends StepFragment implements View.OnCli
 	@Override
 	protected void onHandleMessage(Message msg) {
 
+	}
+	@Override
+	public void onDestroyView() {
+		super.onDestroyView();
+		if (v != null) {
+			((ViewGroup) v.getParent()).removeView(v);
+		}
 	}
 }
