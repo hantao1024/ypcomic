@@ -1,0 +1,86 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_white"
+    android:orientation="vertical"
+    android:paddingTop="12dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioGroup
+            android:id="@+id/rp_discover_book_rack_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_discover_title"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_marginRight="38dp"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:text="@string/fragment_discover"
+                android:textColor="@color/color_selector_navibar_blue_black"
+                android:textSize="@dimen/txt_size_eighteen" />
+
+            <RadioButton
+                android:id="@+id/rb_book_rack_title"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:button="@null"
+                android:gravity="center"
+                android:text="@string/fragment_book_rack"
+                android:textColor="@color/color_selector_navibar_blue_black"
+                android:textSize="@dimen/txt_size_eighteen" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/tv_book_rack_management"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:gravity="center"
+            android:text="管理"
+            android:textColor="@color/comm_gray_high" />
+
+        <TextView
+            android:id="@+id/tv_book_rack_history"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_marginRight="12dp"
+            android:layout_toRightOf="@id/tv_book_rack_management"
+            android:text="历史"
+            android:textColor="@color/comm_gray_high" />
+
+
+        <ImageView
+            android:id="@+id/iv_discover_or_book_rack_query"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_marginRight="12dp"
+            android:src="@drawable/img_main_query" />
+
+
+    </RelativeLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_discover_or_book_rack"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/ll_login_rp"></android.support.v4.view.ViewPager>
+
+</LinearLayout>

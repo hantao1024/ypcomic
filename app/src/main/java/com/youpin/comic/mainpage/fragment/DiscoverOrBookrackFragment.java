@@ -1,4 +1,4 @@
-package com.youpin.comic.loginpage.activity;
+package com.youpin.comic.mainpage.fragment;
 
 import android.os.Bundle;
 import android.os.Message;
@@ -6,67 +6,75 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.RadioButton;
-import android.widget.TextView;
 
 import com.youpin.comic.R;
-import com.youpin.comic.base.StepActivity;
 import com.youpin.comic.base.StepFragment;
-import com.youpin.comic.loginpage.fragment.LoginFragment;
-import com.youpin.comic.loginpage.fragment.RegisterFragment;
 import com.youpin.comic.mainpage.events.HomePageEvents;
 import com.youpin.comic.publicevent.EventBusUtils;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+/**
+ * Created by hantao on 2018/5/14.
+ */
 
-public class LoginActivity extends StepActivity {
-    private static final String TAG = "LoginActivity";
+public class DiscoverOrBookrackFragment extends StepFragment{
 
     /** 最新评论,热门评论 */
-    private RadioButton rb_login , rb_register ;
+    private RadioButton rb_discover , rb_book_rack_title ;
 
-    private ViewPager mPager ;
+    private ViewPager vp_discover_or_book_rack ;
 
     private MyAdapter mAdapter ;
-    private TextView tv_login_close ;
+    private ImageView iv_discover_or_book_rack_query ;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onHandleMessage(Message msg) {
+
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EventBusUtils.register(this);
     }
-
+    View v;
     @Override
-    protected void createContent() {
-
+    protected View createContent(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        if (v == null) {
+            v = inflater.inflate(R.layout.fragment_discover_or_bookrack, null);
+        }
+        return v;
     }
+
     @Override
     protected void findViews() {
-        setContentView(R.layout.activity_login);
-        rb_login=generateFindViewById(R.id.rb_login_title);
-        rb_register=generateFindViewById(R.id.rb_register_title);
-        mPager=generateFindViewById(R.id.vp_login);
-        tv_login_close=generateFindViewById(R.id.tv_login_close);
+        rb_discover=(RadioButton) v.findViewById(R.id.rb_discover_title);
+        rb_book_rack_title=(RadioButton)v.findViewById(R.id.rb_book_rack_title);
+        vp_discover_or_book_rack=(ViewPager) v.findViewById(R.id.vp_discover_or_book_rack);
+        iv_discover_or_book_rack_query=(ImageView) v.findViewById(R.id.iv_discover_or_book_rack_query);
     }
 
     @Override
     protected void initData() {
-        mAdapter = new MyAdapter(getSupportFragmentManager()) ;
-        mPager.setAdapter(mAdapter) ;
-        mPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        mAdapter = new MyAdapter(getChildFragmentManager()) ;
+        vp_discover_or_book_rack.setAdapter(mAdapter) ;
+        vp_discover_or_book_rack.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
                 if (position == 0 ) {
-                    rb_login.setChecked(true);
-                    rb_register.setChecked(false);
+                    rb_discover.setChecked(true);
+                    rb_book_rack_title.setChecked(false);
                 }else if (position == 1 ) {
-                    rb_login.setChecked(false);
-                    rb_register.setChecked(true);
+                    rb_discover.setChecked(false);
+                    rb_book_rack_title.setChecked(true);
                 }
             }
             @Override
@@ -80,39 +88,34 @@ public class LoginActivity extends StepActivity {
 
     @Override
     protected void setListener() {
-        rb_login.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        rb_discover.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    mPager.setCurrentItem(0);
+                    vp_discover_or_book_rack.setCurrentItem(0);
                 }
             }
         });
 
-        rb_register.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        rb_book_rack_title.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    mPager.setCurrentItem(1);
+                    vp_discover_or_book_rack.setCurrentItem(1);
                 }
             }
         });
-        tv_login_close.setOnClickListener(new View.OnClickListener() {
+        iv_discover_or_book_rack_query.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeOpration();
+
             }
         });
     }
-
 
     @Override
     public void free() {
         EventBusUtils.unregister(this);
-    }
-
-    @Override
-    protected void onHandleMessage(Message msg) {
     }
 
     /**
@@ -124,8 +127,6 @@ public class LoginActivity extends StepActivity {
     public void onEventMainThread(HomePageEvents event) {
 
     }
-
-
     class MyAdapter extends FragmentPagerAdapter {
 
         public MyAdapter(FragmentManager fm) {
@@ -141,19 +142,22 @@ public class LoginActivity extends StepActivity {
             StepFragment fragment = null ;
             switch (position) {
                 case 0:
-                    fragment =  new LoginFragment();
-                    fragment.setStepActivity(getActivity());
+                    fragment =  new MainCartoonStudyFragment();
+                    fragment.setStepActivity(getStepActivity());
                     break;
                 case 1:
-                    fragment =  new RegisterFragment();
-                    fragment.setStepActivity(getActivity());
+                    fragment =  new MainCartoonStudyFragment();
+                    fragment.setStepActivity(getStepActivity());
                     break;
             }
             return fragment ;
         }
     }
     @Override
-    public boolean onKeyUp(int keyCode, KeyEvent event) {
-        return super.onKeyUp(keyCode, event);
+    public void onDestroyView() {
+        super.onDestroyView();
+        if (v != null) {
+            ((ViewGroup) v.getParent()).removeView(v);
+        }
     }
 }

@@ -51,6 +51,7 @@
     <string name="main_edit_recommend">编辑力荐</string>
 
 
+
     <!-- 通用部分 -->
     <string name="txt_back">返回</string>
     <string name="txt_opration">操作</string>
@@ -82,4 +83,9 @@
     <string name="search_clear_record">清空记录</string>
     <string name="search_latest">最新：</string>
     <string name="search_contains_special_charactor">包含不可搜索字符!</string>
+
+
+    <!-- 漫文-->
+    <string name="fragment_discover">发现</string>
+    <string name="fragment_book_rack">书架</string>
 </resources>

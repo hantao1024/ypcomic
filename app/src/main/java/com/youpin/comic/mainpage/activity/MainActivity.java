@@ -9,9 +9,9 @@ import com.youpin.comic.R;
 import com.youpin.comic.base.BaseViewPager;
 import com.youpin.comic.base.StepActivity;
 import com.youpin.comic.mainpage.events.HomePageEvents;
+import com.youpin.comic.mainpage.fragment.DiscoverOrBookrackFragment;
 import com.youpin.comic.mainpage.fragment.MainCartoonStudyFragment;
 import com.youpin.comic.mainpage.fragment.MineFragment;
-import com.youpin.comic.mainpage.fragment.OneFragment;
 import com.youpin.comic.mainpage.fragment.ThreeFragment;
 import com.youpin.comic.publicevent.EventBusUtils;
 
@@ -56,7 +56,7 @@ public class MainActivity extends StepActivity {
 
         final ArrayList<Fragment> fgLists = new ArrayList<>(3);
         fgLists.add(new MainCartoonStudyFragment());
-        fgLists.add(new OneFragment());
+        fgLists.add(new DiscoverOrBookrackFragment());
         fgLists.add(new ThreeFragment());
         fgLists.add(new MineFragment());
 
