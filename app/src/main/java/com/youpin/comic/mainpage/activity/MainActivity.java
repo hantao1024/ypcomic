@@ -36,6 +36,7 @@ public class MainActivity extends StepActivity {
     BaseViewPager mViewPager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setEnableSliding(false);
         super.onCreate(savedInstanceState);
         EventBusUtils.register(this);
     }
@@ -136,4 +137,5 @@ public class MainActivity extends StepActivity {
     public void onEventMainThread(HomePageEvents event) {
 
     }
+
 }

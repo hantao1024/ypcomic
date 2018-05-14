@@ -1,6 +1,7 @@
 package com.youpin.comic.base;
 
 import android.content.Context;
+import android.os.Handler;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
@@ -25,6 +26,8 @@ public abstract class KDBaseAdapter<Da> extends BaseAdapter {
     private Context mContext;
 
     public  int IMG_CIRCULAR_BEAD = 20;
+
+    private Handler mHandler;
     /**
      * 列表中显示的数据
      */
@@ -37,6 +40,11 @@ public abstract class KDBaseAdapter<Da> extends BaseAdapter {
     public KDBaseAdapter(Context mContext, List<Da> list) {
         this.mContext = mContext;
         this.daList=list;
+    }
+
+    public KDBaseAdapter(Context mActivity, Handler handler) {
+        this.mContext = mActivity;
+        this.mHandler = handler;
     }
     /***
      * 在内置的daList后面追加数据
@@ -122,5 +130,7 @@ public abstract class KDBaseAdapter<Da> extends BaseAdapter {
             e.printStackTrace();
         }
     }
-
+    public Handler getHandler() {
+        return mHandler;
+    }
 }

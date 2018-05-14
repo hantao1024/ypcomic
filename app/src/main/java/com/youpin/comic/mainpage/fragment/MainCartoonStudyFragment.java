@@ -1,5 +1,6 @@
 package com.youpin.comic.mainpage.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Message;
 import android.support.v4.app.Fragment;
@@ -13,6 +14,7 @@ import android.widget.ImageView;
 import com.youpin.comic.R;
 import com.youpin.comic.base.StepActivity;
 import com.youpin.comic.base.StepFragment;
+import com.youpin.comic.mainpage.activity.SearchActivity;
 import com.youpin.comic.mainpage.bean.ClassifyFilterBeans;
 import com.youpin.comic.publicviews.BounceScrollView;
 import com.youpin.comic.publicviews.ViewPagerIndicatorTwo;
@@ -182,7 +184,8 @@ public class MainCartoonStudyFragment extends StepFragment implements View.OnCli
 		iv_main_query.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-
+				Intent intent=new Intent(getActivity(), SearchActivity.class);
+				startActivity(intent);
 			}
 		});
 

@@ -20,27 +20,31 @@
         </activity>
         <activity android:name="com.youpin.comic.mainpage.activity.TwoActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/NoActionBar">
+            android:theme="@style/AppTheme.Slide">
         </activity>
         <activity android:name="com.youpin.comic.mainpage.activity.ThreeActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/NoActionBar">
+            android:theme="@style/AppTheme.Slide">
         </activity>
         <activity android:name="com.youpin.comic.mainpage.activity.FourActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/NoActionBar">
+            android:theme="@style/AppTheme.Slide">
         </activity>
         <activity android:name="com.youpin.comic.base.ImagePagerActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/NoActionBar">
+            android:theme="@style/AppTheme.Slide">
         </activity>
         <activity android:name="com.youpin.comic.loginpage.activity.LoginActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/NoActionBar">
+            android:theme="@style/AppTheme.Slide">
         </activity>
         <activity android:name="com.youpin.comic.loginpage.activity.ForgetPWDActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/NoActionBar">
+            android:theme="@style/AppTheme.Slide">
+        </activity>
+        <activity android:name="com.youpin.comic.mainpage.activity.SearchActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Slide">
         </activity>
 
 

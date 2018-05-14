@@ -12,7 +12,6 @@ import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -54,8 +53,9 @@ public abstract class StepActivity extends BaseActivity {
 	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
+//		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
+		setEnableSlidingView();
 		mActivity = this;
 		invalidSAvedInstanceState(savedInstanceState) ;
 		createContent();
@@ -63,7 +63,14 @@ public abstract class StepActivity extends BaseActivity {
 		initData();
 		setListener();
 	}
-	
+
+	private void setEnableSlidingView() {
+		if (enableSliding()) {
+			SlidingLayout rootView = new SlidingLayout(this);
+			rootView.bindActivity(this);
+		}
+	}
+
 	/**
 	 * 查看是不是Intent中的数据为空,而 savedInstanceState 不空,则说明可能是系统导致界面销毁,我们把存储的数据还原
 	 * @param savedInstanceState
@@ -462,4 +469,14 @@ public abstract class StepActivity extends BaseActivity {
 //		}
 
 	}
+
+	private boolean isEnableSliding=true;
+	public boolean enableSliding() {
+		return isEnableSliding;
+	}
+
+	public void  setEnableSliding(boolean isEnableSliding){
+		this.isEnableSliding=isEnableSliding;
+	}
+
 }

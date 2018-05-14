@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="30dp"
+    android:background="@android:color/transparent">
+
+    <!-- 这个布局用来给项目中的ScrollView设置底部的空隙占位 -->
+    
+</LinearLayout>

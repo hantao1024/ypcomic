@@ -50,4 +50,36 @@
     <!-- 漫研首页-->
     <string name="main_edit_recommend">编辑力荐</string>
 
+
+    <!-- 通用部分 -->
+    <string name="txt_back">返回</string>
+    <string name="txt_opration">操作</string>
+    <string name="txt_exit">退出登录</string>
+    <string name="txt_login">登录/注册</string>
+    <string name="txt_net_invalid">无网络连接!</string>
+    <string name="txt_confirm">确定</string>
+    <string name="txt_save">保存</string>
+    <string name="txt_cancel">取消</string>
+    <string name="txt_warning">提示!</string>
+    <string name="txt_opration_failed">操作失败</string>
+    <string name="txt_save_success">保存成功</string>
+    <string name="txt_processing">处理中...</string>
+    <string name="index_hint">再按一次退出程序</string>
+    <string name="message_hint">输入文本...</string>
+    <string name="warning_synerror">数据同步失败</string>
+    <string name="app_welcome">Copyright © dmzj.com , All Rights Reserved</string>
+    <string name="reuqest_data_failed">没有获取到内容</string>
+    <string name="reuqest_no_more_data">没有数据啦~~</string>
+
+
+
+    <!-- 搜索 -->
+    <string name="search_inputer_hint">漫画、文章、漫评、新闻、用户</string>
+    <string name="search_search_history">搜索历史</string>
+    <string name="search_hot_search">热门搜索</string>
+    <string name="search_search_noresult_top">没有搜索到想看的作品？</string>
+    <string name="search_search_noresult_bot">去有品漫画网页版搜索，说不定有惊喜哦\n登录并善用有品漫画网站与软件\n就有机会阅读更多优秀作品</string>
+    <string name="search_clear_record">清空记录</string>
+    <string name="search_latest">最新：</string>
+    <string name="search_contains_special_charactor">包含不可搜索字符!</string>
 </resources>
