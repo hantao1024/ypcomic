@@ -16,28 +16,28 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/rb_discover_title"
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:layout_marginRight="38dp"
-                android:button="@null"
-                android:checked="true"
-                android:gravity="center"
-                android:text="@string/fragment_discover"
-                android:textColor="@color/color_selector_navibar_blue_black"
-                android:textSize="@dimen/txt_size_eighteen" />
-
             <RadioButton
                 android:id="@+id/rb_book_rack_title"
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
                 android:button="@null"
                 android:gravity="center"
+                android:checked="true"
+                android:layout_marginRight="38dp"
                 android:text="@string/fragment_book_rack"
                 android:textColor="@color/color_selector_navibar_blue_black"
                 android:textSize="@dimen/txt_size_eighteen" />
+            <RadioButton
+                android:id="@+id/rb_discover_title"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:button="@null"
+                android:gravity="center"
+                android:text="@string/fragment_discover"
+                android:textColor="@color/color_selector_navibar_blue_black"
+                android:textSize="@dimen/txt_size_eighteen" />
+
+
         </RadioGroup>
 
         <TextView

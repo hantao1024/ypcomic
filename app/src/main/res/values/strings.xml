@@ -85,7 +85,13 @@
     <string name="search_contains_special_charactor">包含不可搜索字符!</string>
 
 
-    <!-- 漫文-->
+    <!-- 读漫-->
     <string name="fragment_discover">发现</string>
     <string name="fragment_book_rack">书架</string>
+    <string name="fragment_hot_serialize">热门连载</string>
+    <string name="fragment_hot_refresh">换一换</string>
+    <string name="fragment_finish_read">完本阅读</string>
+    <string name="fragment_guess_like">猜你喜欢</string>
+    <string name="fragment_new_cartoon">新漫导读</string>
+    <string name="fragment_more">更多></string>
 </resources>

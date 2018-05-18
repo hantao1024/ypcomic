@@ -1,10 +1,8 @@
 package com.youpin.comic.mainpage.activity;
 
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Message;
 import android.text.Editable;
-import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -24,7 +22,6 @@ import com.youpin.comic.mainpage.adapter.SearchBean4BriefAdapter;
 import com.youpin.comic.mainpage.adapter.SearchBean4InfoAdapter;
 import com.youpin.comic.mainpage.bean.SearchBean;
 import com.youpin.comic.mainpage.bean.SearchHot;
-import com.youpin.comic.mainpage.bean.SearchKeyWord;
 import com.youpin.comic.publicviews.FlowLayout;
 
 import java.io.UnsupportedEncodingException;
@@ -80,12 +77,6 @@ public class SearchActivity extends StepActivity implements View.OnClickListener
 
     private boolean onlyKeyWord = false;
 
-//    /** 模糊搜索 */
-//    private DMBaseProtocol fuzzySearchProtocol ;
-//    /** 全部搜索 */
-//    private DMBaseProtocol allSearchProtocol ;
-//    /** 热门搜索 */
-//    private DMBaseProtocol hotSearchProtocol ;
 
     /***
      * 搜索文字的颜色
@@ -159,9 +150,7 @@ public class SearchActivity extends StepActivity implements View.OnClickListener
      * 初始化协议
      */
     private void initProtocol(){
-//        fuzzySearchProtocol = new HttpUrlTypeSearchProtocol(getActivity(), URL_ENUM.HttpUrlTypeComicFuzzySearch);
-//        allSearchProtocol = new HttpUrlTypeSearchProtocol(getActivity(), URL_ENUM.HttpUrlTypeComicSearch);
-//        hotSearchProtocol = new HttpUrlTypeSearchProtocol(getActivity(), URL_ENUM.HttpUrlTypeComicSearchHot);
+
     }
 
     /***
@@ -169,66 +158,6 @@ public class SearchActivity extends StepActivity implements View.OnClickListener
      */
     private void onLocalKeywords(){
 
-        try {
-            int type = intent_extra_type.equals(SearchBean.TYPE_CARTOON) ? SearchKeyWord.TYPE_CARTOON : SearchKeyWord.TYPE_NOVEL ;
-//            List<SearchKeyWord> keywords = SearchKeyWordTable.getInstance(getActivity()).getRecentKeyWord(type);
-            List<SearchKeyWord> keywords = null;
-            if (keywords==null || keywords.size()==0) return ;
-
-            int count = keywords.size()%2 ==0 ?( keywords.size()/2 ) :( keywords.size()/2+1);
-            for (int i = 0; i < count; i++) {
-                LinearLayout layout = new LinearLayout(getActivity());
-                layout.setOrientation(LinearLayout.HORIZONTAL);
-                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, dip2px(35));
-                layout_search_historys.addView(layout, layoutParams);
-
-                TextView left = new TextView(getActivity());
-                LinearLayout.LayoutParams textParams = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.FILL_PARENT);
-                textParams.weight = 1;
-                left.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimension(R.dimen.txt_size_second));
-                left.setTextColor(getResources().getColor(R.color.comm_gray_mid));
-                left.setGravity(Gravity.CENTER_VERTICAL);
-                left.setSingleLine(true);
-                left.setEllipsize(TextUtils.TruncateAt.END);
-
-                TextView right = new TextView(getActivity());
-                right.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimension(R.dimen.txt_size_second));
-                right.setTextColor(getResources().getColor(R.color.comm_gray_mid));
-                right.setGravity(Gravity.CENTER_VERTICAL);
-                right.setSingleLine(true);
-                right.setEllipsize(TextUtils.TruncateAt.END);
-
-                left.setPadding(0, 0, dip2px(5), 0);
-                layout.addView(left, textParams);
-                textParams.setMargins(dip2px(5), 0, 0, 0);
-                layout.addView(right, textParams);
-
-                left.setText(keywords.get(i*2).getKeyword());
-                final String lefttext = keywords.get(i*2).getKeyword();
-                left.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        onSearchKeyword(lefttext);
-                    }
-                });
-                if (keywords.size() >(i*2 +1)) {
-                    right.setText(keywords.get(i*2 +1).getKeyword());
-                    final String rightText = keywords.get(i*2 +1).getKeyword();
-                    right.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            onSearchKeyword(rightText);
-                        }
-                    });
-                }else {
-                    right.setVisibility(View.INVISIBLE);
-                }
-            }
-        } catch (Resources.NotFoundException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     /** 模糊搜索的Runnable,因为我们要屏幕输入之后马上搜索  */
@@ -292,18 +221,6 @@ public class SearchActivity extends StepActivity implements View.OnClickListener
             }
         });
 
-//        list_introductions.setOnRefreshListener(new OnRefreshListener2<ListView>() {
-//            @Override
-//            public void onPullDownToRefresh(
-//                    PullToRefreshBase<ListView> refreshView) {
-//                loadData(false) ;
-//            }
-//            @Override
-//            public void onPullUpToRefresh(
-//                    PullToRefreshBase<ListView> refreshView) {
-//                loadData(true) ;
-//            }
-//        });
 
     }
 
@@ -314,28 +231,6 @@ public class SearchActivity extends StepActivity implements View.OnClickListener
     ////////////////////////////////////////////////////////////////////////////////
     /** 热门词搜索 */
     private void onHotKeywords(){
-//        try {
-//            hotSearchProtocol.setPathParam(intent_extra_type!=null&&intent_extra_type.equals(BookList.TYPE_CARTOON) ? BookList.TYPE_CARTOON : BookList.TYPE_NOVEL);
-//        } catch (Exception e) {
-//            hotSearchProtocol.setPathParam( BookList.TYPE_NOVEL);
-//        }
-//        hotSearchProtocol.runProtocol(null ,null ,CACHEOPR.PAIR , new OnSuccessListener() {
-//            @Override
-//            public void onSuccess(Object response) {
-//                searchHots.clear();
-//                JSONArray array = (JSONArray) response ;
-//                for (int i = 0; i < array.length(); i++) {
-//                    SearchHot hot = ObjectMaker.convert(array.optJSONObject(i).toString(), SearchHot.class);
-//                    searchHots.add(hot);
-//                }
-//                onKeyWordsRecieved(searchHots);
-//            }
-//        },new OnFailedListener(){
-//            @Override
-//            public void onFailed(Object response) {
-//
-//            }
-//        });
     }
 
 
@@ -344,33 +239,6 @@ public class SearchActivity extends StepActivity implements View.OnClickListener
      * 模糊搜索
      */
     private void onSearchBrief(final String k){
-//        try {
-//            final String wordstub = filterSearchEncodeKey(k);
-//            String type = intent_extra_type.equals(BookList.TYPE_CARTOON) ? SearchKeyWord.TYPE_CARTOON+"" : SearchKeyWord.TYPE_NOVEL+"" ;
-//            fuzzySearchProtocol.setPathParam(type , wordstub) ;
-//            fuzzySearchProtocol.runProtocol(new OnSuccessListener() {
-//                @Override
-//                public void onSuccess(Object response) {
-//                    //TODO 这里需要解析一下
-//                    searchBeans.clear();
-//                    JSONArray array = (JSONArray) response;
-//                    for (int i = 0; i < array.length(); i++) {
-//                        SearchBean hot = ObjectMaker.convert(array.optJSONObject(i).toString(), SearchBean.class);
-//                        searchBeans.add(hot);
-//                    }
-//                    onSearchBriefComplete();
-//                }
-//            }, new OnFailedListener() {
-//                @Override
-//                public void onFailed(Object response) {
-//
-//                }
-//            });
-//
-//        } catch (IllegalArgumentException e) {
-//            Log.d(TAG, e.getClass().getName()+":"+ e.getMessage());
-//            AlertManager.getInstance().showHint(getActivity(), HintType.HT_SUCCESS, getString(R.string.search_contains_special_charactor));
-//        }
     }
 
     ////////////////////////////////////////////////////////////////////////////////
@@ -396,43 +264,6 @@ public class SearchActivity extends StepActivity implements View.OnClickListener
 
     private void loadData(final boolean more){
 
-//        search_type = search_type == -1 ? intent_extra_type.equals(SearchBean.TYPE_CARTOON) ? SearchKeyWord.TYPE_CARTOON : SearchKeyWord.TYPE_NOVEL : search_type ;
-//        if (search_keyword.trim().length()==0) return ;
-//        String keyStr=filterSearchEncodeKey(search_keyword);
-//        load_page = more ? load_page+1 : 0 ;
-//        try {
-//            //
-//            allSearchProtocol.setPathParam(search_type+"" , keyStr , load_page+"") ;
-//            allSearchProtocol.runProtocol(new OnSuccessListener() {
-//                @Override
-//                public void onSuccess(Object response) {
-//                    //TODO 这里需要解析一下
-//                    list_introductions.onRefreshComplete() ;
-//                    if (!more) {
-//                        searchBeans.clear();
-//                    }
-//                    JSONArray array = (JSONArray) response;
-//                    searchBeans.addAll(ObjectMaker.convert2List(array, SearchBean.class)) ;
-//                    onSearchKeywordComplete(more);
-//                    if (searchBeans.size() > 0 ) {
-//                        txt_search_warning.setVisibility(View.INVISIBLE);
-//                    }else {
-//                        txt_search_warning.setVisibility(View.VISIBLE);
-//                    }
-//                }
-//            }, new OnFailedListener() {
-//                @Override
-//                public void onFailed(Object response) {
-//
-//                }
-//            });
-//
-//            SearchKeyWordTable.getInstance(getActivity()).saveKeyWord(reFilterSearchKey(reFilterSearchKey(search_keyword)) , search_type );
-//
-//        } catch (IllegalArgumentException e) {
-//            Log.d(TAG, e.getMessage());
-//            AlertManager.getInstance().showHint(getActivity(), HintType.HT_SUCCESS, getString(R.string.search_contains_special_charactor));
-//        }
 
     }
 
@@ -443,17 +274,9 @@ public class SearchActivity extends StepActivity implements View.OnClickListener
      */
     private void onSearchKeywordComplete(boolean more){
         showLayer(LAYER.LAYER_INFO);
-//        mInfoAdapter.reLoad(searchBeans);
-//        if (more) {
-//            mInfoAdapter.notifyDataSetChanged() ;
-//        }else {
-//            mInfoAdapter.notifyDataSetInvalidated() ;
-//        }
     }
 
     private String filterSearchKey(String k){
-//		return k.replaceAll(" ", "%20").replaceAll("|", "%7C").replaceAll("%", "%25").replaceAll("[", "%5B").replaceAll("]", "%5D").replaceAll("{", "%7B").replaceAll("}", "%7D");
-//		return k;
         return k.replaceAll(" ", "%20");
     }
 
@@ -470,7 +293,6 @@ public class SearchActivity extends StepActivity implements View.OnClickListener
     }
 
     private String reFilterSearchKey(String key){
-//		return key.replaceAll("%20", " ").replaceAll("%7C", "|").replaceAll("%25", "%").replaceAll("%5B", "[").replaceAll("%5D", "]").replaceAll("%7B", "{").replaceAll("%7D", "}");
         return key.replaceAll("%20", " ");
     }
 
@@ -515,18 +337,6 @@ public class SearchActivity extends StepActivity implements View.OnClickListener
     @Override
     protected void onHandleMessage(Message msg) {
         switch (msg.what) {
-//            case SearchBean4InfoAdapter.MSG_WHAT_ONITEM_CHECKED:
-//                Bundle data = msg.getData();
-//                String id = data.getString(SearchBean4InfoAdapter.MSG_BUNDEL_KEY_ITEM_ID);
-//                String title = data.getString(SearchBean4InfoAdapter.MSG_BUNDEL_KEY_ITEM_TITLE);
-//                if (intent_extra_type.equals(BookList.TYPE_CARTOON)) {
-//                    AppBeanUtils.startCartoonDescriptionActivity(getActivity(), id, title) ;
-//                }else {
-//                    AppBeanUtils.startNovelDescriptionActivity(getActivity(), id, title) ;
-//                }
-//                break;
-//            default:
-//                break;
         }
     }
 
@@ -543,8 +353,7 @@ public class SearchActivity extends StepActivity implements View.OnClickListener
      * 清除历史
      */
     private void clearHistory(){
-//        SearchKeyWordTable.getInstance(getActivity()).removeAll();
-//        layout_search_historys.removeAllViews();
+        layout_search_historys.removeAllViews();
     }
 
     /**

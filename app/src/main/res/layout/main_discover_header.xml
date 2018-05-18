@@ -1,0 +1,17 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="12dp"
+    android:layout_marginRight="12dp"
+    android:orientation="vertical">
+    <include
+        android:id="@+id/ll_main_roll"
+        layout="@layout/main_discover_roll_list" />
+    <include
+        android:id="@+id/ll_discover_list"
+        layout="@layout/main_discover_list" />
+    <include
+        android:id="@+id/ll_one_main_roll"
+        layout="@layout/main_discover_one_roll_list" />
+</LinearLayout>

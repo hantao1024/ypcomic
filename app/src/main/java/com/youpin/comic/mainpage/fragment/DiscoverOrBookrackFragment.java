@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.TextView;
 
 import com.youpin.comic.R;
 import com.youpin.comic.base.StepFragment;
@@ -35,6 +36,7 @@ public class DiscoverOrBookrackFragment extends StepFragment{
     private MyAdapter mAdapter ;
     private ImageView iv_discover_or_book_rack_query ;
 
+    private TextView tv_book_rack_management,tv_book_rack_history;
     @Override
     protected void onHandleMessage(Message msg) {
 
@@ -60,6 +62,8 @@ public class DiscoverOrBookrackFragment extends StepFragment{
         rb_book_rack_title=(RadioButton)v.findViewById(R.id.rb_book_rack_title);
         vp_discover_or_book_rack=(ViewPager) v.findViewById(R.id.vp_discover_or_book_rack);
         iv_discover_or_book_rack_query=(ImageView) v.findViewById(R.id.iv_discover_or_book_rack_query);
+        tv_book_rack_management=(TextView) v.findViewById(R.id.tv_book_rack_management);
+        tv_book_rack_history=(TextView) v.findViewById(R.id.tv_book_rack_history);
     }
 
     @Override
@@ -70,11 +74,13 @@ public class DiscoverOrBookrackFragment extends StepFragment{
             @Override
             public void onPageSelected(int position) {
                 if (position == 0 ) {
-                    rb_discover.setChecked(true);
-                    rb_book_rack_title.setChecked(false);
-                }else if (position == 1 ) {
                     rb_discover.setChecked(false);
                     rb_book_rack_title.setChecked(true);
+                    setVisibility(true);
+                }else if (position == 1 ) {
+                    rb_discover.setChecked(true);
+                    rb_book_rack_title.setChecked(false);
+                    setVisibility(false);
                 }
             }
             @Override
@@ -92,7 +98,8 @@ public class DiscoverOrBookrackFragment extends StepFragment{
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    vp_discover_or_book_rack.setCurrentItem(0);
+                    vp_discover_or_book_rack.setCurrentItem(1);
+                    setVisibility(false);
                 }
             }
         });
@@ -101,7 +108,8 @@ public class DiscoverOrBookrackFragment extends StepFragment{
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    vp_discover_or_book_rack.setCurrentItem(1);
+                    vp_discover_or_book_rack.setCurrentItem(0);
+                    setVisibility(true);
                 }
             }
         });
@@ -142,11 +150,11 @@ public class DiscoverOrBookrackFragment extends StepFragment{
             StepFragment fragment = null ;
             switch (position) {
                 case 0:
-                    fragment =  new MainCartoonStudyFragment();
+                    fragment =  new BookRackFragment();
                     fragment.setStepActivity(getStepActivity());
                     break;
                 case 1:
-                    fragment =  new MainCartoonStudyFragment();
+                    fragment =  new DiscoverFragment();
                     fragment.setStepActivity(getStepActivity());
                     break;
             }
@@ -159,5 +167,9 @@ public class DiscoverOrBookrackFragment extends StepFragment{
         if (v != null) {
             ((ViewGroup) v.getParent()).removeView(v);
         }
+    }
+    private void setVisibility(boolean isVisibility){
+        tv_book_rack_management.setVisibility(isVisibility?View.VISIBLE:View.GONE);
+        tv_book_rack_history.setVisibility(isVisibility?View.VISIBLE:View.GONE);
     }
 }
